@@ -1,0 +1,26 @@
+<header>
+  <div class="container">
+    <div class="intro-text">
+      <div class="intro-lead-in">Presentaciones</div>
+    </div>
+  </div>
+</header>
+<section id="presentaciones">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <% if @presentations != [] %>
+        <ul>
+          <% @presentations.each do |presentation| %>
+            <li>
+              <h3><%= presentation.site %></h3>
+            </li>
+          <% end %>
+        </ul>
+        <% else %>
+          <p>Lo sentimos, no hay presentaciones registradas.</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

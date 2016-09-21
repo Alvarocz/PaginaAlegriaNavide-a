@@ -1,0 +1,69 @@
+body {
+    padding-top: 51px;
+}
+
+footer {
+    background-color: #893263;
+    color: #eee;
+    text-align: center;
+    padding: 10px;
+    margin-top: 28px;
+}
+
+footer .container {
+    margin: 10% 10% 2% 10%;
+}
+
+footer h1 {
+    font-size: 18px;
+}
+
+footer .footer-panel > .header {
+    border-style: solid;
+    border-color: #eee;
+    border-width: 0 0 1px 0;
+}
+
+footer .footer-panel > .body {
+    margin-top: 7px;
+}
+
+p.large {
+    font-size: 30px;
+}
+
+p.medium {
+    font-size: 22px;
+}
+
+.carousel-inner > .item > img {
+    margin: auto;
+}
+
+.jumbotron {
+    background: url("header_image_small.png") no-repeat;
+    background-size: 100%;
+    color: #eee;
+}
+
+.navbar * {
+    color: #2554a3;
+}
+
+.row {
+    padding-bottom: 12%;
+    padding-top: 12%;
+}
+
+@media screen and (min-width: 768px) {
+    .jumbotron {
+        background: url("header_image_big.png") no-repeat;
+        background-size: 100%;
+        padding-bottom: 100px;
+        padding-top: 100px;
+    }
+
+    .navbar {
+        margin-bottom: 0;
+    }
+}
