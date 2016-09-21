@@ -21,9 +21,5 @@ test:
   database: db/test.sqlite3
 
 production:
-  adapter: postgresql
-  pool: 5
-  timeout: 5000
-
-  database: mariazea
-  username: Alvarocz
+  <<: *default
+  database: db/production.sqlite3

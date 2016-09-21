@@ -11,7 +11,9 @@ class PresentationsController < ApplicationController
     @presentation = Presentation.create(presentation_params)
   end
 
-  def presentation_params
-    params.require(:presentation).permit(:date, :presentation_id, :route, :title)
-  end
+  private
+    def presentation_params
+      params.require(:presentation).permit(:site, :date, :contributors)
+    end
+
 end
