@@ -10,13 +10,11 @@
     <div class="row">
       <div class="col-xs-12">
         <% if @presentations != [] %>
-        <ul>
           <% @presentations.each do |presentation| %>
-            <li>
-              <h3><%= presentation.site %></h3>
-            </li>
+            <div class="page-header">
+              <h1>Presentación en <%= presentation.site %> <small><%= presentation.date %></small></h1>
+            </div>
           <% end %>
-        </ul>
         <% else %>
           <p>Lo sentimos, no hay presentaciones registradas.</p>
         <% end %>

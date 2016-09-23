@@ -8,20 +8,22 @@
 <section id="galeria-imagenes">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12">
-        <% if @images != [] %>
-        <ul>
-          <% @images.each do |image| %>
-            <li>
-              <h3><%= image.title %></h3>
-              <img src="<%= image.dir %>" alt="<%= image.title %>">
-            </li>
-          <% end %>
-        </ul>
-        <% else %>
-          <p>Lo sentimos, no hay imágenes para mostrar.</p>
+      <% if @images != [] %>
+        <% @images.each do |image| %>
+          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="thumbnail">
+              <% if image.presentation != nil %>
+                <div>
+                  <p class="lead"><%= image.presentation.site %></p>
+                </div>
+              <% end %>
+              <%= link_to image_tag(image.route), image_path(image) %>
+            </div>
+          </div>
         <% end %>
-      </div>
+      <% else %>
+        <p>Lo sentimos, no hay imágenes para mostrar.</p>
+      <% end %>
     </div>
   </div>
 </section>

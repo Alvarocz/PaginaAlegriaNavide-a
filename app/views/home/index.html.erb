@@ -69,36 +69,32 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-12">
-        <form name="sentMessage" id="contactForm" novalidate>
+      <div class="col-xs-12">
+        <%= form_tag(create_message_path, id: "contactForm") do -%>
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-xs-12 col-md-6">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Tu nombre *" id="name" required data-validation-required-message="Porfavor ingresa tu nombre.">
-                <p class="help-block text-danger"></p>
+                <%= text_field_tag('message[name]', nil, class: "form-control", placeholder: "Tu nombre *", id: "name", required: true) %>
               </div>
               <div class="form-group">
-                <input type="email" class="form-control" placeholder="Tu correo electrónico *" id="email" required data-validation-required-message="Porfavor ingresa tu corre electrónico.">
-                <p class="help-block text-danger"></p>
+                <%= email_field_tag('message[email]', nil, class: "form-control", placeholder: "Tu correo electrónico *", id: "email", required: true) %>
               </div>
               <div class="form-group">
-                <input type="tel" class="form-control" placeholder="Tu número *" id="phone" required data-validation-required-message="Porfavor ingresa tu número de telefono.">
-                <p class="help-block text-danger"></p>
+                <%= text_field_tag('message[number]', nil, class: "form-control", placeholder: "Tu número *", id: "name", required: true) %>
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-xs-12 col-md-6">
               <div class="form-group">
-                <textarea class="form-control" placeholder="Mensaje *" id="message" required data-validation-required-message="Porfavor ingresa un mensaje."></textarea>
-                <p class="help-block text-danger"></p>
+                <%= text_area_tag('message[text]', nil, class: "form-control", placeholder: "Mensaje *", id: "text", required: true) %>
               </div>
             </div>
-            <div class="clearfix"></div>
-            <div class="col-lg-12 text-center">
-              <div id="success"></div>
-              <button type="submit" class="btn btn-xl">Enviar mensaje</button>
+            <div class="col-xs-12 text-center">
+              <div class="success">
+                <%= submit_tag('Enviar mensaje', class: "btn btn-xl") %>
+              </div>
             </div>
           </div>
-        </form>
+        <% end -%>
       </div>
     </div>
   </div>
