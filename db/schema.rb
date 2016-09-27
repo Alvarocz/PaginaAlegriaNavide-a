@@ -22,11 +22,10 @@ ActiveRecord::Schema.define(version: 20160921215055) do
 
   create_table "images", force: :cascade do |t|
     t.date     "date"
-    t.integer  "presentation_id"
     t.string   "route"
     t.string   "title"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "messages", force: :cascade do |t|
@@ -40,7 +39,8 @@ ActiveRecord::Schema.define(version: 20160921215055) do
 
   create_table "presentations", force: :cascade do |t|
     t.string   "site"
-    t.date     "date"
+    t.string   "p_type"
+    t.datetime "datetime"
     t.string   "contributors"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false

@@ -9,7 +9,7 @@ class PresentationsController < ApplicationController
     @presentation.destroy
   end
   def index
-     @presentations = Presentation.all
+     @presentations = Presentation.order(datetime: :desc)
   end
   def new
     @presentation = Presentation.new

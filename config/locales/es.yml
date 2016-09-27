@@ -1,0 +1,78 @@
+es:
+  helpers:
+    label:
+      comment:
+        name: "Nombre"
+        email: "Correo electrónico"
+        message: "Mensaje"
+        created_at: "Creado en"
+        updated_at: "Actualizado en"
+
+
+      imgae:
+        date: "Fecha"
+        route: "Rúta"
+        title: "Título"
+        created_at: "Creado en"
+        updated_at: "Actualizado en"
+
+        
+      message:
+        name: "Nombre"
+        email: "Correo electrónico"
+        number: "Número de teléfono"
+        text: "Texto"
+        created_at: "Creado en"
+        updated_at: "Actualizado en"
+
+
+      presentation:
+        site: "Lugar"
+        p_tyle: "Tipo de presentación"
+        datetime: "Fecha y hora"
+        contributors: "Colaboradores"
+        created_at: "Creado en"
+        updated_at: "Actualizado en"
+
+
+      user:
+        email: "Correo electrónico"
+  activerecord:
+    attributes:
+      comment:
+        name: "Nombre"
+        email: "Correo electrónico"
+        message: "Mensaje"
+        created_at: "Creado en"
+        updated_at: "Actualizado en"
+
+
+      image:
+        date: "Fecha"
+        route: "Rúta"
+        title: "Título"
+        created_at: "Creado en"
+        updated_at: "Actualizado en"
+
+        
+      message:
+        name: "Nombre"
+        email: "Correo electrónico"
+        number: "Número de teléfono"
+        text: "Texto"
+        created_at: "Creado en"
+        updated_at: "Actualizado en"
+
+
+      presentation:
+        site: "Lugar"
+        p_type: "Tipo de presentación"
+        datetime: "Fecha y hora"
+        contributors: "Colaboradores"
+        created_at: "Creado en"
+        updated_at: "Actualizado en"
+
+
+      user:
+        email: "Correo electrónico"
+ 

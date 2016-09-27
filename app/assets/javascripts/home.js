@@ -3,7 +3,6 @@ $(document).on("ready page:load", function() {
 
   form.on("submit", function(event) {
     event.preventDefault();
-    console.log(form);
     $.ajax({
       url: form.attr("action"),
       method: form.attr("method"),

@@ -10,9 +10,13 @@
     <div class="row">
       <div class="col-xs-12">
         <% if @presentations != [] %>
+          <div class="text-center"><h2>Proximamente en</h2></div>
           <% @presentations.each do |presentation| %>
             <div class="page-header">
-              <h1>Presentación en <%= presentation.site %> <small><%= presentation.date %></small></h1>
+              <h1>Presentación en <%= presentation.site %></h1>
+              <% f = presentation.datetime %>
+              <p><%= f.strftime("%A ")+f.day.to_s+" de "+f.strftime('%B')+" del "+f.strftime('%Y') %></p>
+              <p><%= f.strftime('%H:%M %p') %></p>
             </div>
           <% end %>
         <% else %>

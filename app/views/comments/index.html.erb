@@ -1,0 +1,61 @@
+<header>
+  <div class="container">
+    <div class="intro-text">
+      <div class="intro-lead-in">Comentarios</div>
+    </div>
+  </div>
+</header>
+
+<section id="comentarios">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <%= form_tag(create_comment_path, id: "commentsForm") do -%>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <div class="form-group">
+                <%= label_tag('comment[name]', 'Tu nombre *') %>
+                <%= text_field_tag('comment[name]', nil, class: "form-control") %>
+              </div>
+              <div class="form-group">
+                <%= label_tag('comment[email]', 'Tu correo electrónico') %>
+                <%= email_field_tag('comment[email]', nil, class: "form-control") %>
+              </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <div class="form-group">
+                <%= label_tag('comment[message]',  'Mensaje *') %>
+                <%= text_area_tag('comment[message]', nil, class: "form-control") %>
+              </div>
+              <div class="success">
+                <%= submit_tag('Publicar', data: { disable_with: "Guardando comentario..." }, class: "btn btn-md btn-primary") %>
+              </div>
+            </div>
+          </div>
+        <% end -%>
+
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">comentarios</h3>
+          </div>
+          <% if @comments != [] %>
+            <ul class="list-group" id="commentsList">
+              <% @comments.each do |comment| %>
+                <li class="list-group-item">
+                  <h3><%= comment.name %></h3><br>
+                  <p><%= comment.message %></p>
+                  <% if user_signed_in? %>
+                    <br>
+                    <%= link_to 'Eliminar comentario. (Solo administrador)', comment, method: :delete, data: {confirm: "¿Estas seguro que quieres eliminar este comentario?"} %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          <% else %>
+            <span>Por ahora no hay comentarios.</span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

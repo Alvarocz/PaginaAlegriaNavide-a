@@ -1,7 +1,6 @@
 class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
-    puts params
     respond_to do |format|
       if @message.save
         format.json { render json: @message.to_json }

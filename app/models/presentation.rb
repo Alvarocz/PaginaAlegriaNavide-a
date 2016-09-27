@@ -1,6 +1,6 @@
-class Presentation < ApplicationRecord
-  has_many :images
-
+class Presentation < ApplicationRecord 
   validates :site, presence: true
-  validates :date, presence: true
+  validates :datetime, presence: true
+  validates :p_type, presence: true
+  validates :p_type, inclusion: { in: ["Público", "Privado"] }
 end

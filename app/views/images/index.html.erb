@@ -12,9 +12,9 @@
         <% @images.each do |image| %>
           <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
             <div class="thumbnail">
-              <% if image.presentation != nil %>
+              <% if image.title != nil %>
                 <div>
-                  <p class="lead"><%= image.presentation.site %></p>
+                  <p class="lead"><%= image.title %></p>
                 </div>
               <% end %>
               <%= link_to image_tag(image.route), image_path(image) %>
