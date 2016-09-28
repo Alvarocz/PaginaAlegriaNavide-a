@@ -10,7 +10,11 @@ $(document).on("ready page:load", function() {
       dataType: "json",
       data: form.serialize(),
       success: function(json) {
-        commentsList.eq(0).before('<li class="list-group-item"><string><h3>'+json.name+'</h3></strong><br><span><p>'+json.message+'</p></span></li>');
+        if (commentsList.length > 0) {
+          $("#commentsList").append('<li class="list-group-item"><h3>'+json.name+'</h3><br><span><p>'+json.message+'</p></span></li>');
+        } else {
+          commentsList.eq(0).before('<li class="list-group-item"><h3>'+json.name+'</h3><br><span><p>'+json.message+'</p></span></li>');
+        }
         form[0].reset();
       },
       error: function(data) {

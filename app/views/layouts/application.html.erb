@@ -30,14 +30,11 @@
             <li id="galeria">
               <%= link_to 'Galería', gallery_path %>
             </li>
-            <li id="presentaciones">
-              <%= link_to 'Presentaciones', presentations_path %>
-            </li>
             <li id="videos">
-              <a href="#">Videos</a>
+              <%= link_to 'Videos', videos_path %>
             </li>
             <li id="agenda">
-              <a href="#">Agenda</a>
+              <%= link_to 'Agenda', presentations_path %>
             </li>
             <li id="comentarios">
               <%= link_to 'Comentarios', comments_path %>
@@ -61,7 +58,7 @@
               <ul class="list-inline social-buttons">
                   <li><a href="#"><i class="fa fa-twitter"></i></a>
                   </li>
-                  <li><a href="#"><i class="fa fa-facebook"></i></a>
+                  <li><a href="https://www.facebook.com/profile.php?id=100010104935370&fref=ts"><i class="fa fa-facebook"></i></a>
                   </li>
                   <li><a href="#"><i class="fa fa-linkedin"></i></a>
                   </li>
@@ -71,7 +68,7 @@
               <ul class="list-inline quicklinks">
                   <li><a href="#">Politica de privacidad</a>
                   </li>
-                  <li><a href="#">Terminos de uso</a>
+                  <li><%= link_to 'Terminos de uso', terms_path %></a>
                   </li>
               </ul>
           </div>

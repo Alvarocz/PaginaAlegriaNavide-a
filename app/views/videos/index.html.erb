@@ -1,0 +1,30 @@
+<header>
+  <div class="contanier">
+    <div class="intro-text">
+      <div class="intro-lead-in">Videos</div>
+    </div>
+  </div>
+</header>
+
+<section id="videos">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <% if @videos != [] %>
+          <% @videos.each do |video| -%>
+          <div class="page-header">
+            <h3><%= video.title %></h3>
+          </div>
+          <div class="page-content">
+            <div class="embed-container">
+              <%= embed(video.route) %>
+            </div>
+          </div>
+          <% end %>
+        <% else %>
+          <p>Lo sentimos, aun no hay videos disponibles.</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

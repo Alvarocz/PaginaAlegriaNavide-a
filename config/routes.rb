@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   resources :images
   resources :messages
   resources :presentations
+  resources :videos
 
   get '/galeria' => 'images#index', as: 'gallery'
+  get '/terminos' => 'home#terms', as: 'terms' 
   post '/create_message' => 'messages#create', as: 'create_message'
   post '/create_comment' => 'comments#create', as: 'create_comment'
 
