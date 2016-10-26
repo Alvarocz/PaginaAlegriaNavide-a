@@ -15,10 +15,12 @@
  *= require_self
  */
 
-footer {
-    background-color: #7c5c92;
+body {
+    background: url(asset-path("bg-image-desktop.png")) no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
 }
-
 .embed-container {
     padding-bottom: 51%;
     position: relative;
@@ -32,23 +34,29 @@ footer {
         left: 0;
     }
 }
-
+header {
+    color: #e9e71a;
+}
 p {
     font-size: 1.8em;
 }
-
+section {
+    color: black;
+    background-color: rgba(245, 245, 254, .5);
+}
+section.filled {
+    color: black;
+    background-color: #ece3fe;
+}
 section#contact {
     background-color: #c62469;
 }
-
 ul.social-buttons a:hover {
     color: black;
 }
-
 li.active a {
   color: black !important;
 }
-
 .carousel-control.left,
 .carousel-control.right {
     background-color: #6262e6;
@@ -61,12 +69,12 @@ li.active a {
         transform: translate(-50%, -50%);
     }
 }
-
 .carousel-inner > .item > img {
     margin: auto;
 }
-
-
+footer {
+    background-color: #7c5c92;
+}
 ::-webkit-input-placeholder,
 :-moz-placeholder,
 ::-moz-placeholder,
