@@ -28,7 +28,7 @@
                 <%= text_area_tag('comment[message]', nil, class: "form-control") %>
               </div>
               <div class="success">
-                <%= submit_tag('Publicar', data: { disable_with: "Guardando comentario..." }, class: "btn btn-md btn-primary") %>
+                <%= submit_tag('Publicar', class: "btn btn-md btn-primary") %>
               </div>
             </div>
           </div>
@@ -44,14 +44,11 @@
                 <li class="list-group-item">
                   <h3><%= comment.name %></h3><br>
                   <p><%= comment.message %></p>
-                  <% if user_signed_in? %>
-                    <br>
-                    <%= link_to 'Eliminar comentario. (Solo administrador)', comment, method: :delete, data: {confirm: "¿Estas seguro que quieres eliminar este comentario?"} %>
-                  <% end %>
                 </li>
               <% end %>
             </ul>
           <% else %>
+            <ul class="list-group" id="commentsList"></ul>
             <span>Por ahora no hay comentarios.</span>
           <% end %>
         </div>

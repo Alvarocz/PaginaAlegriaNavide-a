@@ -21,6 +21,9 @@ body {
     background-size: cover;
     background-position: center;
 }
+#mainNav {
+    background: rgba(34, 34, 34, .7);
+}
 .embed-container {
     padding-bottom: 51%;
     position: relative;
@@ -69,6 +72,13 @@ li.active a {
         transform: translate(-50%, -50%);
     }
 }
+
+.thumbnail {
+    border: none;
+    background-color: rgba(255, 255, 255, .65);
+    text-align: center;
+}
+
 .carousel-inner > .item > img {
     margin: auto;
 }

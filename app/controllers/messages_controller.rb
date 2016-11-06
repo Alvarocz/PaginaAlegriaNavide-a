@@ -3,6 +3,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     respond_to do |format|
       if @message.save
+        format.html { redirect_to home_path, notice: "{parama[:name]} Su mensaje ha sido enviado" }
         format.json { render json: @message.to_json }
       else
         format.html { render redirect_to: '/' }

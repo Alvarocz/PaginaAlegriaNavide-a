@@ -1,4 +1,11 @@
 es:
+  activerecord:
+    errors:
+      models:
+        presentations:
+          attributes:
+            datetime:
+              blank: "No puede estar en blanco"
   admin:
     js:
       true: Cierto
@@ -147,3 +154,4 @@ es:
         default_col_sep: ","
         col_sep: "Separador de columnas"
         col_sep_help: "Deje en blanco para el de defecto ('%{value}')" # value is default_col_sep
+

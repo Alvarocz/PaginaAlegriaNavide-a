@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   resources :videos
 
   get '/galeria' => 'images#index', as: 'gallery'
-  get '/terminos' => 'home#terms', as: 'terms' 
+  get '/terminos' => 'home#terms', as: 'terms'
+  get '/subir_imagen' => 'images#new', as: 'upload_img'
   post '/create_message' => 'messages#create', as: 'create_message'
   post '/create_comment' => 'comments#create', as: 'create_comment'
 

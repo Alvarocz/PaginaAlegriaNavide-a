@@ -1,0 +1,43 @@
+<section>
+  <div class="container" style="background-color: rgba(255, 255, 255, .75);">
+    <div class="row col-xs-12">
+      <h1>Subir imágen</h1>
+
+      <% if @image.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@image.errors.count, "error") %> no permitieron que esta imágen se halla guardado:</h2>
+
+          <ul>
+          <% @image.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= form_for(@image, html: {id: "new-image-form"}) do |f| %>
+        <div class="form-group">
+          <%= f.label :title, 'Título' %>
+          <%= f.text_field :title, placeholder: "Título de la imágen", class: "form-control" %>
+        </div>
+        <% if @image.presentation_id != nil %>
+          <div class="form-group">
+            <%= f.label :presentation_id, 'Presentación (Opcional):' %>
+            <%= f.select :presentation_id, Presentation.all.collect {|p| [p.site, p.id]} %>
+          </div>
+        <% end %>
+        <div class="form-group">
+          <%= f.label :date, 'Fecha' %>
+          <%= f.datetime_field :date, class: "form-control" %>
+        </div>  
+        <div class="form-group">
+          <%= f.label :route, 'Ruta de la imágen' %>
+          <%= f.file_field :route, class: "form-control" %>
+        </div>
+        <div class="success">
+          <%= f.submit "Guardar", class: "btn btn-lg btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
