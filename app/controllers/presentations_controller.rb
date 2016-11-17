@@ -5,11 +5,11 @@ class PresentationsController < ApplicationController
     redirect_to presentations_path
   end
   def destroy
-    @prensentation = Presentation.find(params[:id])
+    @presentation = Presentation.find(params[:id])
     @presentation.destroy
   end
   def edit
-    @prensentation = Presentation.find(params[:id])
+    @presentation = Presentation.find(params[:id])
   end
   def index
      @presentations = Presentation.order(datetime: :asc)
@@ -18,10 +18,10 @@ class PresentationsController < ApplicationController
     @presentation = Presentation.new
   end
   def show
-    @prensentation = Presentation.find(params[:id])
+    @presentation = Presentation.find(params[:id])
   end
   def update
-    @prensentation = Presentation.find(params[:id])
+    @presentation = Presentation.find(params[:id])
     @presentation.update(presentation_params)
 
     redirect_to presentations_path
