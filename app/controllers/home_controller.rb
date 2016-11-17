@@ -4,4 +4,6 @@ class HomeController < ApplicationController
   end
   def terms
   end
+  def admin
+  end
 end

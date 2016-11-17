@@ -1,5 +1,5 @@
 <section id="nuevo-video">
-  <div class="container">
+  <div class="container form-container">
     <div class="row">
       <div class="col-xs-12">
         <h1>Crear video</h1>
@@ -22,8 +22,12 @@
             <%= f.text_field :title, placeholder: "Título del video", class: "form-control" %>
           </div>
           <div class="form-group">
-            <%= f.label :route, 'Ruta (link embebido de youtube)' %>
-            <%= f.text_field :route, placeholder: "Ruta", class: "form-control" %>
+            <%= f.label :route, 'Ruta' %>
+            <%= f.text_field :route, placeholder: "Link embebido", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :comment, 'Comentario' %>
+            <%= f.text_area :comment, placeholder: "Comentario", class: "form-control" %>
           </div>
           <div class="success">
             <%= f.submit 'Crear', class: "btn btn-lg btn-success" %>
