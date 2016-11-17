@@ -28,6 +28,9 @@ es:
     am: "AM"
     pm: "PM"
 
+  datetime:
+    day_names: [Domingo, Lúnes, Martes, Miércoles, Jueves, Viernes, Sábado]
+
   helpers:
     label:
       comment:

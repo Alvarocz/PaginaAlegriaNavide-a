@@ -8,14 +8,23 @@ class PresentationsController < ApplicationController
     @prensentation = Presentation.find(params[:id])
     @presentation.destroy
   end
+  def edit
+    @prensentation = Presentation.find(params[:id])
+  end
   def index
-     @presentations = Presentation.order(datetime: :desc)
+     @presentations = Presentation.order(datetime: :asc)
   end
   def new
     @presentation = Presentation.new
   end
   def show
     @prensentation = Presentation.find(params[:id])
+  end
+  def update
+    @prensentation = Presentation.find(params[:id])
+    @presentation.update(presentation_params)
+
+    redirect_to presentations_path
   end
 
   private

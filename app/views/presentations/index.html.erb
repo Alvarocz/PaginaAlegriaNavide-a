@@ -6,17 +6,30 @@
   </div>
 </header>
 <section id="presentaciones">
-  <div class="container">
+  <div class="container filled-container">
     <div class="row">
       <div class="col-xs-12">
         <% if @presentations != [] %>
           <div class="text-center"><h2>Proximamente en</h2></div>
           <% @presentations.each do |presentation| %>
-            <div class="page-header">
-              <h1>Presentación en <%= presentation.site %></h1>
-              <% f = presentation.datetime %>
-              <p><%= f.strftime("%A ")+f.day.to_s+" de "+f.strftime('%B')+" del "+f.strftime('%Y') %></p>
-              <p><%= f.strftime('%H:%M %p') %></p>
+            <div class="panel">
+              <div class="page-header">
+                <h2>
+                  Presentación en <%= presentation.site %>
+                  <% if user_signed_in? %>
+                    <small><%= link_to 'Editar', edit_presentation_path(presentation) %></small>
+                    <small><%= link_to 'Eliminar', presentation, method: :delete, data: { confirm: "¿Estas segur@?"} %></small>
+                  <% end %>
+                </h2>
+              </div>
+              <div class="panel-body">
+                <% f = presentation.datetime %>
+                <p><%= l(f, format: '%B %d del %Y') %> a las <%= l(f, format: '%H:%M %p') %></p>
+
+                <% if presentation.comment != "" %>
+                  <p><%= presentation.comment %></p>
+                <% end %>
+              </div>
             </div>
           <% end %>
         <% else %>
