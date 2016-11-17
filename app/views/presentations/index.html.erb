@@ -15,7 +15,7 @@
             <div class="panel">
               <div class="page-header">
                 <h2>
-                  Presentación en <%= presentation.site %>
+                  <%= presentation.title %>
                   <% if user_signed_in? %>
                     <small><%= link_to 'Editar', edit_presentation_path(presentation) %></small>
                     <small><%= link_to 'Eliminar', presentation, method: :delete, data: { confirm: "¿Estas segur@?"} %></small>
@@ -23,11 +23,16 @@
                 </h2>
               </div>
               <div class="panel-body">
+                <P><strong>Lugar: </strong><%= presentation.site %></P>
                 <% f = presentation.datetime %>
-                <p><%= l(f, format: '%B %d del %Y') %> a las <%= l(f, format: '%H:%M %p') %></p>
+                <p><strong>Fecha y hora: </strong><%= l(f, format: '%B %d del %Y') %> a las <%= l(f, format: '%H:%M %p') %></p>
 
                 <% if presentation.comment != "" %>
-                  <p><%= presentation.comment %></p>
+                  <p><strong>Nota: </strong> <%= presentation.comment %></p>
+                <% end %>
+
+                <% if presentation.contributors != "" %>
+                  <p><strong>Colaboran: </strong><%= presentation.contributors %></p>
                 <% end %>
               </div>
             </div>

@@ -7,6 +7,8 @@ class PresentationsController < ApplicationController
   def destroy
     @presentation = Presentation.find(params[:id])
     @presentation.destroy
+
+    redirect_to presentations_path
   end
   def edit
     @presentation = Presentation.find(params[:id])
