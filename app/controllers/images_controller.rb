@@ -7,6 +7,11 @@ class ImagesController < ApplicationController
   def destroy
     @image = Image.find(params[:id])
     @image.destroy
+
+    redirect_to gallery_path
+  end
+  def edit
+    @image = Image.find(params[:id])
   end
   def index
     @images = Image.all
@@ -16,6 +21,12 @@ class ImagesController < ApplicationController
   end
   def show
     @image = Image.find(params[:id])
+  end
+  def update
+    @image = Image.find(params[:id])
+    @image.update(image_params)
+
+    redirect_to gallery_path
   end
 
   private
