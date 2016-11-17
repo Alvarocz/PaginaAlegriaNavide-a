@@ -33,9 +33,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Bootstrap rails
 gem 'twitter-bootstrap-rails'
-# Panel de administracion
-gem 'rails_admin', github: 'sferik/rails_admin'
-# Autenticación de usuario principal
+# Autenticación de usuario
 gem 'devise'
 # Sistema para cargar contenido multimedia
 gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'

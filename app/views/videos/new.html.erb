@@ -1,0 +1,35 @@
+<section id="nuevo-video">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1>Crear video</h1>
+
+        <% if @video.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@video.errors.count, "error") %> no permitieron que este video se halla creado:</h2>
+
+          <ul>
+          <% @video.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+        <% end %>
+
+        <%= form_for(@video, html: {id: "new-video-form"}) do |f| %>
+          <div class="form-group">
+            <%= f.label :title, 'Título' %>
+            <%= f.text_field :title, placeholder: "Título del video", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :route, 'Ruta (link embebido de youtube)' %>
+            <%= f.text_field :route, placeholder: "Ruta", class: "form-control" %>
+          </div>
+          <div class="success">
+            <%= f.submit 'Crear', class: "btn btn-lg btn-success" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

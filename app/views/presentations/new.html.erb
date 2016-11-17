@@ -1,0 +1,52 @@
+<section>
+  <div class="container" style="background-color: rgba(255, 255, 255, .75);">
+    <div class="col-xs-12">
+      <h1>Publicar presentación</h1>
+
+      <% if @presentation.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@presentation.errors.count, "error") %> no permitieron que esta presentación se halla publicado:</h2>
+
+          <ul>
+          <% @presentation.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= form_for(@presentation, html: {id: "new-presentation-form"}) do |f| %>
+        <div class="form-group">
+          <%= f.label :title, "Título" %>
+          <%= f.text_field :title, placeholder: "Título de la presentación", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :site, "Lugar" %>
+          <%= f.text_field :site, placeholder: "Lugar de la presentación", class: "form-control" %>
+          <span>Requerido</span>
+        </div>
+        <div class="form-group">
+          <%= f.label :p_type, "Tipo de presentación (Público o Privado)" %>
+          <%= f.text_field :p_type, placeholder: "Título de la presentación", class: "form-control" %>
+          <span>Requerido</span>
+        </div>
+        <div class="form-group">
+          <%= f.label :datetime, "Fecha" %><br>
+          <%= f.datetime_select :datetime, selected: Date.today %>
+          <span>Requerido</span>
+        </div>
+        <div class="form-group">
+          <%= f.label :comment, "Comentarios" %>
+          <%= f.text_area :comment, placeholder: "Comentarios", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :contributors, "Colaboradores" %>
+          <%= f.text_field :contributors, placeholder: "Colaboradores", class: "form-control" %>
+        </div>
+        <div class="success">
+          <%= f.submit 'Guardar', class: "btn btn-lg btn-success" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

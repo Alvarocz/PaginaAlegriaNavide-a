@@ -2,7 +2,7 @@ class PresentationsController < ApplicationController
   def create
     @presentation = Presentation.new(presentation_params)
     @presentation.save
-    redirect_to presentations_paths
+    redirect_to presentations_path
   end
   def destroy
     @prensentation = Presentation.find(params[:id])
@@ -20,6 +20,6 @@ class PresentationsController < ApplicationController
 
   private
     def presentation_params
-      params.require(:presentation).permit(:site, :date, :contributors)
+      params.require(:presentation).permit(:title, :site, :p_type, :datetime, :contributors, comment)
     end
 end

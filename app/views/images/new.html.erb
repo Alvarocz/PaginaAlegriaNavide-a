@@ -27,12 +27,13 @@
           </div>
         <% end %>
         <div class="form-group">
-          <%= f.label :date, 'Fecha' %>
-          <%= f.datetime_field :date, class: "form-control" %>
+          <%= f.label :date, 'Fecha' %><br>
+          <%= f.date_select :date, class: "form-control" %>
         </div>  
         <div class="form-group">
-          <%= f.label :route, 'Ruta de la imágen' %>
+          <%= f.label :route, 'Archivo' %>
           <%= f.file_field :route, class: "form-control" %>
+          <span>Requerido</span>
         </div>
         <div class="success">
           <%= f.submit "Guardar", class: "btn btn-lg btn-primary" %>
