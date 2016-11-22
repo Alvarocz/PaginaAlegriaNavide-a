@@ -51,6 +51,12 @@ p {
 section {
     color: black;
     background-color: rgba(245, 245, 254, .5);
+
+    .row img {
+        margin-bottom: 20px;
+        width: 52%;
+        height: auto;
+    }
 }
 section.filled {
     color: black;

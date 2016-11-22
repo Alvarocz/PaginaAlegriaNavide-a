@@ -35,8 +35,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'twitter-bootstrap-rails'
 # Autenticación de usuario
 gem 'devise'
-# Sistema para cargar contenido multimedia
-gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
