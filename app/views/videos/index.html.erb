@@ -20,6 +20,9 @@
               <%= embed(video.route) %>
             </div>
           </div>
+          <% if user_signed_in? %>
+            <%= link_to 'Editar', edit_video_path(video), class: "btn btn-md btn-primary" %>
+            <%= link_to 'Eliminar', video, method: :delete, data: { confirm: "¿Estas segur@?" }, class: "btn btn-md btn-primary" %>
           <% end %>
         <% else %>
           <p>Lo sentimos, aun no hay videos disponibles.</p>
