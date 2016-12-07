@@ -5,8 +5,11 @@ class VideosController < ApplicationController
     redirect_to videos_path
   end
   def destroy
-    @prensentation = Video.find(params[:id])
+    @video = Video.find(params[:id])
     @video.destroy
+  end
+  def edit
+    @video = Video.find(params[:id])
   end
   def index
      @videos = Video.order(created_at: :desc)
@@ -15,7 +18,13 @@ class VideosController < ApplicationController
     @video = Video.new
   end
   def show
-    @prensentation = Video.find(params[:id])
+    @video = Video.find(params[:id])
+  end
+  def update
+    @video = Video.find(params[:id])
+    @video.update(video_params)
+
+    redirect_to videos_path
   end
 
   private
