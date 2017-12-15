@@ -1,63 +1,62 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
  *= require bootstrap_and_overrides
  *= require_tree .
  *= require_self
  */
 
 body {
-    background: url(asset-path("bg-image-desktop.png")) no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
+  background: url(asset-path("bg-image-desktop.png")) no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 #mainNav {
     background: rgba(34, 34, 34, .7);
 }
 .embed-container {
-    padding-bottom: 51%;
-    position: relative;
-    width: 90%;
-    height: 0;
-    iframe {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-    }
+  padding-bottom: 51%;
+  position: relative;
+  width: 90%;
+  height: 0;
+  iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
 }
 header {
-    color: #e9e71a;
+  color: #e9e71a;
 }
 p {
-    font-size: 1.8em;
+  font-size: 1.8em;
 }
 
 .form-container {
-    background-color: rgba(255, 255, 255, .75);
+  background-color: rgba(255, 255, 255, .75);
 }
 
 section {
-    color: black;
-    background-color: rgba(245, 245, 254, .5);
+  color: black;
+  background-color: rgba(245, 245, 254, .89);
 
-    .row img {
-        margin-bottom: 20px;
-        width: 52%;
-        height: auto;
-    }
+  .row img {
+    margin-bottom: 20px;
+    width: 52%;
+    height: auto;
+  }
 }
+
+.preview img {
+	width: auto;
+}
+
 section.filled {
     color: black;
     background-color: #ece3fe;
@@ -85,13 +84,41 @@ li.active a {
 }
 
 .thumbnail {
-    border: none;
-    background-color: rgba(255, 255, 255, .65);
-    text-align: center;
+  border: none;
+  background-color: rgba(255, 255, 255, .65);
+  text-align: center;
+}
+
+/* CRUD Widgets */
+.control-panel {
+  background: #F5F6F7;
+  opacity: .4;
+  position: absolute;
+  transition: opacity .3s;
+  top: 0;
+  right: 0;
+  &:hover {
+    opacity: .85;
+  }
+
+  li {
+    float: left;
+    width: auto;
+    padding: 0;
+
+    &:hover {
+      background: rgba(245, 246, 257, .9);
+    }
+    a {
+      color: black;
+      display: block;
+      padding: 10px;
+    }
+  }
 }
 
 .carousel-inner > .item > img {
-    margin: auto;
+  margin: auto;
 }
 footer {
     background-color: #7c5c92;

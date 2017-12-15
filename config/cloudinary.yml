@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dkf3ppkcn
+  api_key: '476992497384511'
+  api_secret: G-9aLDLs6BlRiJIjran0fX0C4sk
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dkf3ppkcn
+  api_key: '476992497384511'
+  api_secret: G-9aLDLs6BlRiJIjran0fX0C4sk
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dkf3ppkcn
+  api_key: '476992497384511'
+  api_secret: G-9aLDLs6BlRiJIjran0fX0C4sk
+  enhance_image_tag: true
+  static_image_support: false

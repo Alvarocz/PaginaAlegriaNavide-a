@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   def authenticate_admin_key(key)
-    if key == "anmariazea2016"
+    if key == "anmariazea2017"
       return true
     else
       return false

@@ -26,22 +26,13 @@
           <span>Requerido</span>
         </div>
         <div class="form-group">
-          <%= f.label :p_type, "Tipo de presentación (Público o Privado)" %>
-          <%= f.text_field :p_type, placeholder: "Título de la presentación", class: "form-control" %>
-          <span>Requerido</span>
-        </div>
-        <div class="form-group">
-          <%= f.label :datetime, "Fecha" %><br>
+          <%= f.label :datetime, "Fecha y hora" %><br>
           <%= f.datetime_select :datetime, selected: Date.today %>
           <span>Requerido</span>
         </div>
         <div class="form-group">
           <%= f.label :comment, "Comentarios" %>
           <%= f.text_area :comment, placeholder: "Comentarios", class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :contributors, "Colaboradores" %>
-          <%= f.text_field :contributors, placeholder: "Colaboradores", class: "form-control" %>
         </div>
         <div class="success">
           <%= f.submit 'Guardar', class: "btn btn-lg btn-success" %>

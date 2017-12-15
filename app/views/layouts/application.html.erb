@@ -7,8 +7,11 @@
     <title>Musical Alegría Navideña</title>
     <%= csrf_meta_tags %>
 
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
     <body>
       <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
@@ -70,12 +73,10 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4">
-            <span class="copyright">Copyright &copy; Alegría Navideña 2016</span>
+            <span class="copyright">Copyright &copy; Alegría Navideña 2017</span>
           </div>
           <div class="col-md-4">
             <ul class="list-inline social-buttons">
-              <li><a href="#"><i class="fa fa-twitter"></i></a>
-              </li>
               <li><a href="https://www.facebook.com/profile.php?id=100010104935370&fref=ts"><i class="fa fa-facebook"></i></a>
               </li>
               <li><a href="https://www.youtube.com/channel/UCshMtSLNZ-gYQ5jGOmu_FhA"><i class="fa fa-youtube"></i></a>
@@ -84,9 +85,6 @@
           </div>
           <div class="col-md-4">
             <ul class="list-inline quicklinks">
-              <li>
-                <a href="#">Politica de privacidad</a>
-              </li>
               <li>
                 <%= link_to 'Terminos de uso', terms_path %></a>
               </li>

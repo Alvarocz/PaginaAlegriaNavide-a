@@ -1,3 +1,61 @@
-// Place all the styles related to the images controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+section#galeria {
+  padding: 100px 0 0 0;
+
+  img {
+    opacity: 0;
+    transition: opacity .65s;
+  }
+}
+/* Smart gallery */
+.image-thumbnail {
+  position: relative;
+  margin-bottom: 20px;
+
+  img {
+    margin-bottom: 0;
+    width: 100%;
+  }
+  .image-caption {
+    background: rgba(22, 22, 22, .75);
+    display: block;
+    color: #F5F6F7;
+    line-height: 38px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+  }
+}
+.gallery-container {
+  background-color: #2B2B2B;
+  display: block;
+  height: auto;
+
+  .col {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+
+    &*:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .image-thumbnail {
+    background-color: #2f2f2f;
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+@media screen and (min-width: 600px) {
+  .gallery-container {
+    display: flex;
+    .col {
+      flex: 1;
+      padding: 10px;
+    }
+    .image-thumbnail {
+      margin-bottom: 30px;
+    }
+  }
+}

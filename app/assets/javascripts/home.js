@@ -9,7 +9,6 @@ $(document).on("ready page:load", function() {
       dataType: 'json',
       data: form.serialize(),
       success: function(json) {
-        console.log(json);
         $("body").append(
           '<div class="modal fade" id="confirm-modal" role="dialog" style="display:block;">'+
             '<div class="modal-dialog">'+

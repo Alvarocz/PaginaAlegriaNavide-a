@@ -1,31 +1,5 @@
-<header>
-  <div class="container">
-    <div class="intro-text">
-      <div class="intro-lead-in">Galería de imágenes</div>
-    </div>
-  </div>
-</header>
-<section id="galeria-imagenes">
-  <div class="container">
-    <div class="row">
-      <% if @images != [] %>
-        <% @images.each do |image| %>
-          <div class="col-xs-12 col-sm-6">
-            <div class="thumbnail">
-              <% if image.title != nil %>
-                <h4><%= image.title %></h4>
-              <% end %>
-              <%= link_to image_tag(image.route), image_path(image) %>
-              <% if user_signed_in? %>
-                <%= link_to 'Editar', edit_image_path(image), class: "btn btn-md btn-primary" %>
-                <%= link_to 'Eliminar', image, method: :delete, data: { confirm: "¿Estas segur@?" }, class: "btn btn-md btn-primary" %>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-      <% else %>
-        <p>Lo sentimos, no hay imágenes para mostrar.</p>
-      <% end %>
-    </div>
-  </div>
+<section id="galeria">
+	<div class="gallery-container">
+
+	</div>
 </section>

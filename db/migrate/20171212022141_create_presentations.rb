@@ -1,12 +1,11 @@
-class CreatePresentations < ActiveRecord::Migration[5.0]
+class CreatePresentations < ActiveRecord::Migration[5.1]
   def change
     create_table :presentations do |t|
+      t.string :title
       t.string :site
-      t.string :p_type
+      t.string :comment
       t.datetime :datetime
       t.string :contributors
-
-      t.timestamps
     end
   end
 end

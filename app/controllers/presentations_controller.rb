@@ -31,6 +31,6 @@ class PresentationsController < ApplicationController
 
   private
     def presentation_params
-      params.require(:presentation).permit(:title, :site, :p_type, :datetime, :contributors, :comment)
+      params.require(:presentation).permit(:title, :site, :datetime, :contributors, :comment)
     end
 end

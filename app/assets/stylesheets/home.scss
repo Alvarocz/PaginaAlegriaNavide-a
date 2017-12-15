@@ -1,3 +1,17 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.intro-heading, .intro-lead-in {
+  text-shadow: 0 0 3px #2a005c, 0 0 20px #2a005c;
+  font-family: 'Courgette' !important;
+  text-transform: capitalize !important;
+  font-weight: normal !important;
+}
+.intro-heading {
+  font-size: 80px !important;
+  color: white;
+}
+.intro-lead-in {
+  color: #2a0046;
+}

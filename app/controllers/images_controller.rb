@@ -1,7 +1,10 @@
 class ImagesController < ApplicationController
   def create
+		puts image_params
     @image = Image.new(image_params)
-    @image.save
+    if !@image.save
+      @error = @image.errors.full_messages.join('. ')
+    end
     redirect_to gallery_path
   end
   def destroy
@@ -14,10 +17,14 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
   end
   def index
-    @images = Image.all
+		@images = Image.all
+		respond_to do |format|
+			format.html # Show index.html.erb
+			format.json { render json: [@images, user_signed_in?] }
+		end
   end
   def new
-    @image = Image.new
+    @image = Image.new(title: "Imagen\##{1 + (Image.maximum(:id) || 0)}")
   end
   def show
     @image = Image.find(params[:id])
@@ -29,8 +36,17 @@ class ImagesController < ApplicationController
     redirect_to gallery_path
   end
 
+  protected
+  def direct_upload_mode?
+    params[:direct].present?
+  end
+
+  def unsigned_mode?
+    params[:unsigned].present?
+  end
+
   private
     def image_params
-      params.require(:image).permit(:date, :route, :title, :presentation_id)
+      params.require(:image).permit(:image, :title)
     end
 end

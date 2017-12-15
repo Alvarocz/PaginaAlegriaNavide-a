@@ -1,8 +1,9 @@
-<section>
-  <div class="container">
+
+</section><section id="editar-imagen">
+  <div class="container form-container">
     <div class="row">
-      <div class="col-xs-13">
-        <h2>Editar imágen</h2>
+      <div class="col-xs-12">
+        <h1>Actualizar imágen</h1>
 
         <% if @image.errors.any? %>
           <div id="error_explanation">
@@ -16,25 +17,18 @@
           </div>
         <% end %>
 
-        <%= form_for(@image, html: {id: "new-image-form"}) do |f| %>
+				<%= cl_image_tag(@image.image, :alt => @image.title, style: "width: 424px;") %>
+        <%= form_for(@image) do |f| %>
           <div class="form-group">
             <%= f.label :title, 'Título' %>
-            <%= f.text_field :title, class: "form-control" %>
+            <%= f.text_field :title, placeholder: "Título de la imágen", class: "form-control" %>
           </div>
-          <% if @image.presentation_id != nil %>
-            <div class="form-group">
-              <%= f.label :presentation_id, 'Presentación (Opcional):' %>
-              <%= f.select :presentation_id, Presentation.all.collect {|p| [p.site, p.id]} %>
-            </div>
-          <% end %>
           <div class="form-group">
-            <%= f.label :date, 'Fecha' %><br>
-            <%= f.date_select :date, class: "form-control" %>
-          </div>  
-          <div class="form-group">
-            <%= f.label :route, 'Archivo' %>
-            <%= f.text_field :route, class: "form-control" %>
-            <span>Requerido</span>
+            <%= f.label :image, 'Archivo' %>
+						<%= link_to("", "#", class: "upload_button") %>
+            <%= f.cl_image_upload(:image, return_delete_token: true) %>
+            <span>Requerido</span><br>
+            <span class="status"></span>
           </div>
           <div class="success">
             <%= f.submit "Actualizar", class: "btn btn-lg btn-success" %>
@@ -44,3 +38,57 @@
     </div>
   </div>
 </section>
+
+<!-- Configure Cloudinary jQuery plugin -->
+<%= cloudinary_js_config %>
+
+<script>
+  $(document).ready(function() {
+    $(".cloudinary-fileupload")
+      .cloudinary_fileupload({
+        // Uncomment the following lines to enable client side image resizing and valiation.
+        // Make sure cloudinary/processing is included the js file
+        //disableImageResize: false,
+        //imageMaxWidth: 800,
+        //imageMaxHeight: 600,
+        //acceptFileTypes: /(\.|\/)(gif|jpe?g|png|bmp|ico)$/i,
+        //maxFileSize: 20000000, // 20MB
+        dropZone: "#direct_upload",
+        start: function (e) {
+          $(".status").text("Iniciando carga...");
+        },
+        progress: function (e, data) {
+          $(".status").text("Cargando... " + Math.round((data.loaded * 100.0) / data.total) + "%");
+        },
+        fail: function (e, data) {
+          $(".status").text("La carga falló");
+        }
+      })
+      .off("cloudinarydone").on("cloudinarydone", function (e, data) {
+        $("#photo_bytes").val(data.result.bytes);
+        $(".status").text("");
+        var preview = $(".preview").html('');
+        $.cloudinary.image(data.result.public_id, {
+          format: data.result.format, width: 50, height: 50, crop: "fit"
+        }).appendTo(preview);
+
+        $('<a/>').
+          addClass('delete_by_token').
+          attr({href: '#'}).
+          data({delete_token: data.result.delete_token}).
+          html('&times;').
+          appendTo(preview).
+          click(function(e) {
+            e.preventDefault();
+            $.cloudinary.delete_by_token($(this).data('delete_token')).done(function(){
+              $('.preview').html('');
+              $('#info').html('');
+              $("#photo_bytes").val('');
+              $('input[name="photo[image]"]').remove();
+            }).fail(function() {
+              $('.status').text("Cannot delete image");
+          });
+        });
+      });
+    });
+</script>

@@ -2,9 +2,9 @@
 <header class="parallax">
   <div class="container">
     <div class="intro-text">
-      <div class="intro-heading" style="color: #00b050">Grupo musical</div>
-      <div class="intro-heading" style="color: #ff0000">Alegría Navideña</div>
-      <div class="intro-lead-in">La estrella mágica de navidad</div>
+      <div class="intro-heading">Grupo musical</div>
+      <div class="intro-heading">Alegría Navideña</div>
+      <div class="intro-lead-in">Encendiendo motores para esta navidad</div>
     </div>
   </div>
 </header>
@@ -51,28 +51,31 @@ y fue asi con las personas talentosas del barrio, que se dio inicio a la prepara
 </section>
 
 <!-- Carrusel de imágenes -->
+<% if @images != [] %>
 <section id="carrusel" class="row">
   <div class="col-xs-12">
     <div id="main-carousel" class="carousel slide transparent" data-ride="carousel">
       <ol class="carousel-indicators">
-        <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
-        <li data-target="#main-carousel" data-slide-to="1"></li>
-        <li data-target="#main-carousel" data-slide-to="2"></li>
-        <li data-target="#main-carousel" data-slide-to="3"></li>
+        <% @images.each_with_index do |img,i| %>
+          <% if i == 0 %>
+            <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
+          <% else %>
+            <li data-target="#main-carousel" data-slide-to="<%=i%>"></li>
+          <% end %>
+        <% end %>
       </ol>
       <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <%= image_tag("carrousel-1.jpg", width: 960, height: 720) %>
-        </div>
-        <div class="item">
-          <%= image_tag("carrousel-2.jpg", width: 960, height: 720) %>
-        </div>
-        <div class="item">
-          <%= image_tag("carrousel-3.jpg", width: 960, height: 720) %>
-        </div>
-        <div class="item">
-          <%= image_tag("carrousel-4.jpg", width: 960, height: 720) %>
-        </div>
+        <% @images.each_with_index do |img,i| %>
+          <% if i == 0 %>
+            <div class="item active">
+              <%= cl_image_tag(img.image, width: 960, height: 720) %>
+            </div>
+          <% else %>
+            <div class="item">
+              <%= cl_image_tag(img.image, width: 960, height: 720) %>
+            </div>
+          <% end %>
+        <% end %>
       </div>
       <a href="#main-carousel" class="left carousel-control" role="button" data-slide="prev">
         <span class="fa fa-angle-left" aria-hidden="true"></span>
@@ -85,6 +88,7 @@ y fue asi con las personas talentosas del barrio, que se dio inicio a la prepara
     </div>
   </div>
 </section>
+<% end %>
 
 <!-- Contacto -->
 <section id="contact">
@@ -106,7 +110,7 @@ y fue asi con las personas talentosas del barrio, que se dio inicio a la prepara
                 <%= email_field_tag('message[email]', nil, class: "form-control", placeholder: "Tu correo electrónico *", id: "email", required: true) %>
               </div>
               <div class="form-group">
-                <%= text_field_tag('message[number]', nil, class: "form-control", placeholder: "Tu número *", id: "name", required: true) %>
+                <%= text_field_tag('message[number]', nil, class: "form-control", placeholder: "Tu número de contacto *", id: "name", required: true) %>
               </div>
             </div>
             <div class="col-xs-12 col-md-6">
