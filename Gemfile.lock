@@ -229,6 +229,7 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
+  bundler (= 1.16.0)
   byebug
   capybara (~> 2.13)
   carrierwave
