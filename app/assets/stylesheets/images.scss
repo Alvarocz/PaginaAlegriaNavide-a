@@ -47,6 +47,12 @@ section#galeria {
     margin-bottom: 10px;
   }
 }
+.modal-dialog {
+  width: 45%;
+}
+.modal-dialog img {
+  width: 100%;
+}
 @media screen and (min-width: 600px) {
   .gallery-container {
     display: flex;

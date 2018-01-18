@@ -28,6 +28,9 @@ class ImagesController < ApplicationController
   end
   def show
     @image = Image.find(params[:id])
+		respond_to do |format|
+			format.json { render json: @image }
+		end
   end
   def update
     @image = Image.find(params[:id])
