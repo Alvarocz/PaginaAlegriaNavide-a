@@ -55,7 +55,7 @@ end
 
 group :production do
   # Postgresql
-	gem 'pg'
+	gem 'pg', '0.19.0'
 
   # Multiidioma
   gem 'pry-rails'
